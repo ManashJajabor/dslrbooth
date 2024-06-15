@@ -66,11 +66,11 @@
 
                                         data-buttontext=disable
 
-                                        data-name="Hadatk Media"
+                                        data-name="Hatk Media"
 
-                                        data-description="Hadatk Media"
+                                        data-description="Hatk Media"
 
-                                        data-image="http://43.204.115.154:8080/static/media/logo.b56d94b323c7c29bdb19.png"
+                                        data-image="{{asset('img/logo.png')}}"
 
                                         data-prefill.name="name"
 

@@ -51,38 +51,43 @@
             </center>
             <center>
                 <span>
-
                     <button class="btn">
                         <span style="font-family:'Courier New';font-size: 25px"><b>Start The Booth</b></span>
-                        <form action="{{ route('razorpay.payment.store') }}" method="POST" id="pamentForm">
-
-                                @csrf
-
-                                <script src="https://checkout.razorpay.com/v1/checkout.js"
-
-                                        data-key="{{ env('RAZORPAY_KEY') }}"
-
-                                        data-amount="1000"
-
-                                        data-buttontext=disable
-
-                                        data-name="Hatk Media"
-
-                                        data-description="Hatk Media"
-
-                                        data-image="{{asset('img/logo.png')}}"
-
-                                        data-prefill.name="name"
-
-                                        data-prefill.email="email"
-                                        data-prefill.contact="919101067303"
-
-                                        data-theme.color="#F1B82E">
-
-                                </script>
-
-                            </form>
+                        <form action="{{ route('razorpay.payment.start') }}" method="POST" id="pamentForm">
+                            @csrf
+                        </form>
                     </button>
+{{--                    <button class="btn">--}}
+{{--                        <span style="font-family:'Courier New';font-size: 25px"><b>Start The Booth</b></span>--}}
+{{--                        <form action="{{ route('razorpay.payment.store') }}" method="POST" id="pamentForm">--}}
+
+{{--                                @csrf--}}
+
+{{--                                <script src="https://checkout.razorpay.com/v1/checkout.js"--}}
+
+{{--                                        data-key="{{ env('RAZORPAY_KEY') }}"--}}
+
+{{--                                        data-amount="1000"--}}
+
+{{--                                        data-buttontext=disable--}}
+
+{{--                                        data-name="Hatk Media"--}}
+
+{{--                                        data-description="Hatk Media"--}}
+
+{{--                                        data-image="{{asset('img/logo.png')}}"--}}
+
+{{--                                        data-prefill.name="name"--}}
+
+{{--                                        data-prefill.email="email"--}}
+{{--                                        data-prefill.contact="919101067303"--}}
+
+{{--                                        data-theme.color="#F1B82E">--}}
+
+{{--                                </script>--}}
+
+{{--                            </form>--}}
+{{--                    </button>--}}
                 </span>
             </center>
         </div>
@@ -96,7 +101,7 @@
     $('.btn').click(function () {
         $('#pamentForm').submit();
     });
-    $('.razorpay-payment-button').hide();
+    // $('.razorpay-payment-button').hide();
 </script>
 </body>
 </html>

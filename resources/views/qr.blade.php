@@ -45,25 +45,12 @@
         </div>
         <div class="col-sm-4">
             <center>
-                <img src="{{asset('img/logo.png')}}" width="330px" align="center" style="margin-top: 40%">
-                <br>
-                <span style="font-family: Baumans,system-ui;font-size: 22px;color: white;">A Photo Booth Platform</span>
+                <img src="{{$qrImage}}" width="300px" align="center" height="550px">
+
             </center>
             <center>
                 <span>
-                    <div
-                        style="background-color: #f1b82e; width:400px;height: 100px;border-radius: 20px;padding-top: 35px"
-                        id="hide">
-                        <span style="text-align: center;font-size: 20px;font-family:'Courier New';color: white"><b>DslrBooth is now starting.......</b></span>
-                    </div>
-                    <div id="printBtn" style="display:none;">
-                        <form method="post" action="{{route('print')}}">
-                            @csrf
-                            <button class="btn" type="submit">
-                                <span style="font-family:'Courier New';font-size: 25px"><b>Print</b></span>
-                            </button>
-                        </form>
-                    </div>
+
 
                 </span>
             </center>
@@ -74,24 +61,44 @@
     </div>
 </div>
 <script>
-    
+    function checkStatus() {
 
-    $(document).ready(function () {
-        setInterval(function () {
-            $.ajax({
-                url: '{{route('hitdslr')}}',
-                type: 'GET',
-                dataType: 'JSON'
-            });
-        }, 500);
+        var formData = {
+            qr_id: '{{$qrID}}',
+            action: 'checkPaymentStatus',
 
-        setInterval(function () {
-            $("#printBtn").fadeIn();
-        }, 15000);
-        setTimeout(function () {
-            $('#hide').fadeOut('fast');
-        }, 15000);
-    });
+        }
+
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: 'POST',
+            url: '{{route('payment-check')}}',
+            data: {
+                qr_id: '{{$qrID}}',
+                action: 'checkPaymentStatus',
+                "_token": "{{ csrf_token() }}",
+            },
+            dataType: 'json',
+            encode: true,
+        }).done(function (data) {
+            console.log(data);
+            if (data.res == 'success') {
+
+                window.location = '{{route('success')}}';
+            }
+
+            if (data.res == 'error') {
+                // checkStatus();
+                window.location = "payment-failed.php?status=failed";
+            }
+
+        });
+    }
+
+    setInterval(checkStatus, 1000);
+
 </script>
 
 </body>

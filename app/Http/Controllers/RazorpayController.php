@@ -87,18 +87,18 @@ class RazorpayController extends Controller
             $jsonDecode = json_decode($result, true);
 //            dd($jsonDecode);
             if ($jsonDecode == NULL) {
-                toastr()->error('DslrBooth not started yet.');
+//                toastr()->error('DslrBooth not started yet.');
                 return redirect()->back();
             }
 
             if ($jsonDecode['IsSuccessful'] == true) {
                 return redirect()->route('success');
             } else {
-                toastr()->error($jsonDecode['ErrorMessage']);
+//                toastr()->error($jsonDecode['ErrorMessage']);
                 return redirect()->back();
             }
         } else {
-            toastr()->error('Payment Failed');
+//            toastr()->error('Payment Failed');
             return redirect()->back();
         }
 
@@ -106,7 +106,7 @@ class RazorpayController extends Controller
 
     public function success()
     {
-        toastr()->success('Payment Success');
+//        toastr()->success('Payment Success');
         return view('success');
     }
 
@@ -139,15 +139,15 @@ class RazorpayController extends Controller
         $jsonDecode = json_decode($result, true);
 
         if ($jsonDecode == NULL) {
-            toastr()->error('DslrBooth not started yet.');
+//            toastr()->error('DslrBooth not started yet.');
             return redirect()->route('home');
         }
 
         if ($jsonDecode['IsSuccessful'] == true) {
-            toastr()->success('Process Completed.');
+//            toastr()->success('Process Completed.');
             return redirect()->route('home');
         } else {
-            toastr()->error($jsonDecode['ErrorMessage']);
+//            toastr()->error($jsonDecode['ErrorMessage']);
             return redirect()->route('home');
         }
     }
@@ -369,15 +369,15 @@ class RazorpayController extends Controller
         // decode the json response
         $jsonDecode = json_decode($result, true);
 //            dd($jsonDecode);
-        if ($jsonDecode == NULL) {
-            toastr()->error('DslrBooth not started yet.');
-            return redirect()->back();
-        }
+//        if ($jsonDecode == NULL) {
+//            toastr()->error('DslrBooth not started yet.');
+//            return redirect()->back();
+//        }
 
         if ($jsonDecode['IsSuccessful'] == true) {
-            return redirect()->route('success');
+            return redirect()->route('home');
         } else {
-            toastr()->error($jsonDecode['ErrorMessage']);
+//            toastr()->error($jsonDecode['ErrorMessage']);
             return redirect()->back();
         }
     }

@@ -97,7 +97,7 @@
         });
     }
 
-    setInterval(checkStatus, 1000);
+    setInterval(checkStatus, 3000);
 
 </script>
 

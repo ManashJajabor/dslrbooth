@@ -74,16 +74,16 @@
     </div>
 </div>
 <script>
-    
+
 
     $(document).ready(function () {
-        setInterval(function () {
-            $.ajax({
-                url: '{{route('hitdslr')}}',
-                type: 'GET',
-                dataType: 'JSON'
-            });
-        }, 500);
+
+        $.ajax({
+            url: '{{route('hitdslr')}}',
+            type: 'GET',
+            dataType: 'JSON'
+        });
+
 
         setInterval(function () {
             $("#printBtn").fadeIn();

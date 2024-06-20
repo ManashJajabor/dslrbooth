@@ -373,6 +373,7 @@ class RazorpayController extends Controller
 //            toastr()->error('DslrBooth not started yet.');
 //            return redirect()->back();
 //        }
+        dd($jsonDecode);
 
         if ($jsonDecode['IsSuccessful'] == true) {
             return redirect()->route('home');

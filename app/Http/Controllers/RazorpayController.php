@@ -358,7 +358,7 @@ class RazorpayController extends Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET'); // Values: GET, POST, PUT, DELETE, PATCH, UPDATE
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST'); // Values: GET, POST, PUT, DELETE, PATCH, UPDATE
         curl_setopt($ch, CURLOPT_POSTFIELDS, false);
         //curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
@@ -373,7 +373,7 @@ class RazorpayController extends Controller
 //            toastr()->error('DslrBooth not started yet.');
 //            return redirect()->back();
 //        }
-        dd($jsonDecode);
+
 
         if ($jsonDecode['IsSuccessful'] == true) {
             return redirect()->route('home');

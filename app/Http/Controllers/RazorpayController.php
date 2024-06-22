@@ -361,7 +361,7 @@ class RazorpayController extends Controller
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST'); // Values: GET, POST, PUT, DELETE, PATCH, UPDATE
         curl_setopt($ch, CURLOPT_POSTFIELDS, false);
         //curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);dd($ch);
         //execute call and return response data.
         $result = curl_exec($ch);
         //close curl connection

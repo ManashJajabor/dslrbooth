@@ -25,3 +25,6 @@ Route::post('start',[\App\Http\Controllers\RazorpayController::class,'start'])->
 Route::post('payment-check',[\App\Http\Controllers\RazorpayController::class,'payCheck'])->name('payment-check');
 Route::get('payment-check1',[\App\Http\Controllers\RazorpayController::class,'payCheck1'])->name('payment-check1');
 
+
+Route::get('close',[\App\Http\Controllers\RazorpayController::class,'close'])->name('close');
+

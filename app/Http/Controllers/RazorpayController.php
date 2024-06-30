@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Payment;
+use App\Models\Trigger;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Razorpay\Api\Api;
@@ -292,7 +293,7 @@ class RazorpayController extends Controller
         $res = json_decode($result2, true);
 
         if (isset($res['count']) && $res['count'] != '0') {
-            $payment = Payment::where('qr_id',$request->qr_id)->first();
+            $payment = Payment::where('qr_id', $request->qr_id)->first();
             $payment->raz_id = $res['items'][0]['id'];
             $payment->amount = $res['items'][0]['amount'];
             $payment->status = $res['items'][0]['status'];
@@ -376,10 +377,48 @@ class RazorpayController extends Controller
 
 
         if ($jsonDecode['IsSuccessful'] == true) {
+            shell_exec('taskkill /f /im "firefox.exe"');
             return redirect()->route('home');
         } else {
 //            toastr()->error($jsonDecode['ErrorMessage']);
             return redirect()->back();
         }
+    }
+
+    public function trigger(Request $r)
+    { $data = new Trigger();
+        $data->data = json_encode($r->all());
+        $data->save();
+        $dt = json_encode($r->all());
+        $dt = \GuzzleHttp\json_decode($dt);
+        if(isset($dt->event_type))
+        {
+
+//           if($dt->event_type == 'session_end')
+//           {
+//               $data = new Trigger();
+//               $data->data = json_encode($r->all());
+//               $data->save();
+//               echo 'var myWindow = window.open("", "myWindow", "width=800,height=600")';
+//               return redirect()->route('home');
+//           }
+        }
+    }
+
+    public function close()
+    {
+        shell_exec('taskkill /f /im "firefox.exe"');
+//        $batchFilePath = storage_path('a.bat'); // Path to your .bat file
+//
+//        // Run the .bat file
+//        $output = [];
+//        $resultCode = 0;
+//        exec("start /B cmd /C \"$batchFilePath\"", $output, $resultCode);
+//
+//        return response()->json([
+//            'output' => $output,
+//            'resultCode' => $resultCode
+//        ]);
+//        return view('close');
     }
 }

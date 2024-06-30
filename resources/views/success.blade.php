@@ -57,12 +57,12 @@
                         <span style="text-align: center;font-size: 20px;font-family:'Courier New';color: white"><b>DslrBooth is now starting.......</b></span>
                     </div>
                     <div id="printBtn" style="display:none;">
-                        <form method="post" action="{{route('print')}}">
-                            @csrf
-                            <button class="btn" type="submit">
-                                <span style="font-family:'Courier New';font-size: 25px"><b>Print</b></span>
-                            </button>
-                        </form>
+{{--                        <form method="post" action="{{route('print')}}">--}}
+{{--                            @csrf--}}
+{{--                            <button class="btn" type="submit">--}}
+{{--                                <span style="font-family:'Courier New';font-size: 25px"><b>Print</b></span>--}}
+{{--                            </button>--}}
+{{--                        </form>--}}
                     </div>
 
                 </span>

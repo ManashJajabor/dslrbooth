@@ -57,12 +57,17 @@
                         <span style="text-align: center;font-size: 20px;font-family:'Courier New';color: white"><b>DslrBooth is now starting.......</b></span>
                     </div>
                     <div id="printBtn" style="display:none;">
-{{--                        <form method="post" action="{{route('print')}}">--}}
-{{--                            @csrf--}}
-{{--                            <button class="btn" type="submit">--}}
-{{--                                <span style="font-family:'Courier New';font-size: 25px"><b>Print</b></span>--}}
-{{--                            </button>--}}
-{{--                        </form>--}}
+                        <a href="{{route('home')}}">
+                            <button class="btn" type="button" id="home">
+                                <span style="font-family:'Courier New';font-size: 25px"><b>Go To Home</b></span>
+                            </button>
+                        </a>
+{{--                        <form method="post" action="{{route('home')}}">--}}
+                        {{--                            @csrf--}}
+                        {{--                            <button class="btn" type="submit">--}}
+                        {{--                                <span style="font-family:'Courier New';font-size: 25px"><b>Go To Home</b></span>--}}
+                        {{--                            </button>--}}
+                        {{--                        </form>--}}
                     </div>
 
                 </span>
@@ -91,6 +96,9 @@
         setTimeout(function () {
             $('#hide').fadeOut('fast');
         }, 15000);
+        setTimeout(function () {
+            $('#home').click();
+        }, 20000);
     });
 </script>
 

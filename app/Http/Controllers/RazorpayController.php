@@ -13,6 +13,7 @@ class RazorpayController extends Controller
 {
     public function home()
     {
+
         return view('welcome');
     }
 
@@ -377,7 +378,35 @@ class RazorpayController extends Controller
 
 
         if ($jsonDecode['IsSuccessful'] == true) {
-            shell_exec('taskkill /f /im "firefox.exe"');
+
+            $url = "http://localhost:3000/open-browser?event_type=minimize";
+
+            $header = array(
+                "Content-Type: application/json",
+                'Accept: application/json'
+            );
+            $ch = curl_init();
+
+            $timeout = 60;
+
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET'); // Values: GET, POST, PUT, DELETE, PATCH, UPDATE
+            curl_setopt($ch, CURLOPT_POSTFIELDS, false);
+            //curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+            //execute call and return response data.
+            $result = curl_exec($ch);
+            //close curl connection
+            curl_close($ch);
+            // decode the json response
+            $jsonDecode = json_decode($result, true);
+
+            //code for close browser
+//            shell_exec('taskkill /f /im "firefox.exe"');
             return redirect()->route('home');
         } else {
 //            toastr()->error($jsonDecode['ErrorMessage']);
@@ -386,23 +415,35 @@ class RazorpayController extends Controller
     }
 
     public function trigger(Request $r)
-    { $data = new Trigger();
-        $data->data = json_encode($r->all());
-        $data->save();
-        $dt = json_encode($r->all());
-        $dt = \GuzzleHttp\json_decode($dt);
-        if(isset($dt->event_type))
-        {
+    {
+        if ($r->event_type == 'session_end') {
+            $url = "http://localhost:3000/open-browser?event_type=minimize";
 
-//           if($dt->event_type == 'session_end')
-//           {
-//               $data = new Trigger();
-//               $data->data = json_encode($r->all());
-//               $data->save();
-//               echo 'var myWindow = window.open("", "myWindow", "width=800,height=600")';
-//               return redirect()->route('home');
-//           }
+            $header = array(
+                "Content-Type: application/json",
+                'Accept: application/json'
+            );
+            $ch = curl_init();
+
+            $timeout = 60;
+
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET'); // Values: GET, POST, PUT, DELETE, PATCH, UPDATE
+            curl_setopt($ch, CURLOPT_POSTFIELDS, false);
+            //curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+            //execute call and return response data.
+            $result = curl_exec($ch);
+            //close curl connection
+            curl_close($ch);
+            // decode the json response
+            $jsonDecode = json_decode($result, true);
         }
+
     }
 
     public function close()

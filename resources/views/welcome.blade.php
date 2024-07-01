@@ -101,6 +101,8 @@
     $('.btn').click(function () {
         $('#pamentForm').submit();
     });
+
+
     // $('.razorpay-payment-button').hide();
 </script>
 </body>

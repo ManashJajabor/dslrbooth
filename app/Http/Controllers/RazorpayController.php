@@ -17,7 +17,7 @@ class RazorpayController extends Controller
 
         $output = [];
         $returnVar = 0;
-        $result = exec(env('PYTHON').' '.env('PYTHONURL'), $output, $returnVar);
+        $result = exec('xvfb-run -a '.env('PYTHON').' '.env('PYTHONURL'), $output, $returnVar);
 
 //        if ($returnVar === 0) {
 //            return response()->json(['output' => $output]);

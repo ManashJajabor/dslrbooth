@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Payment;
 use App\Models\Trigger;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Process;
 use Illuminate\Support\Facades\Session;
 use Razorpay\Api\Api;
 
@@ -14,6 +15,15 @@ class RazorpayController extends Controller
     public function home()
     {
 
+        $output = [];
+        $returnVar = 0;
+        $result = exec(env('PYTHON').' '.env('PYTHONURL'), $output, $returnVar);
+
+        if ($returnVar === 0) {
+            return response()->json(['output' => $output]);
+        }
+
+        return response()->json(['error' => $result->errorOutput()], 500);
         return view('welcome');
     }
 

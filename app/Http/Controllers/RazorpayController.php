@@ -17,13 +17,13 @@ class RazorpayController extends Controller
 
         $output = [];
         $returnVar = 0;
-        $result = exec('xvfb-run -a '.env('PYTHON').' '.env('PYTHONURL'), $output, $returnVar);
+        $result = exec(env('PYTHON').' '.env('PYTHONURL'), $output, $returnVar);
 
-//        if ($returnVar === 0) {
-//            return response()->json(['output' => $output]);
-//        }
-//
-//        return response()->json(['error' => $result->errorOutput()], 500);
+        if ($returnVar === 0) {
+            return response()->json(['output' => $output]);
+        }
+
+        return response()->json(['error' => $result->errorOutput()], 500);
         return view('welcome');
     }
 

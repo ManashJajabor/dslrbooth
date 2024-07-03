@@ -19,11 +19,11 @@ class RazorpayController extends Controller
         $returnVar = 0;
         $result = exec(env('PYTHON').' '.env('PYTHONURL'), $output, $returnVar);
 
-        if ($returnVar === 0) {
-            return response()->json(['output' => $output]);
-        }
-
-        return response()->json(['error' => $result->errorOutput()], 500);
+//        if ($returnVar === 0) {
+//            return response()->json(['output' => $output]);
+//        }
+//
+//        return response()->json(['error' => $result->errorOutput()], 500);
         return view('welcome');
     }
 

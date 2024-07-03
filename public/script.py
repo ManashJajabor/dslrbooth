@@ -1,6 +1,6 @@
 import pyautogui
 import time
-
+print("Hello from Python!")
 # Delay for user to switch to desired application window
 switch_delay = 5
 

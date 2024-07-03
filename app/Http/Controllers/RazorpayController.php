@@ -17,8 +17,8 @@ class RazorpayController extends Controller
 
         $output = [];
         $returnVar = 0;
-        $result = exec(env('PYTHON').' '.env('PYTHONURL'), $output, $returnVar);
-
+        $result = exec(env('PYTHON').' '.env('PYTHONURL'));
+dd($result);
         if ($returnVar === 0) {
             return response()->json(['output' => $output]);
         }

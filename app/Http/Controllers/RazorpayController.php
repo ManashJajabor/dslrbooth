@@ -15,15 +15,15 @@ class RazorpayController extends Controller
     public function home()
     {
 
-        $output = [];
-        $returnVar = 0;
-        $result = exec(env('PYTHON').' '.env('PYTHONURL'));
-dd($result);
-        if ($returnVar === 0) {
-            return response()->json(['output' => $output]);
-        }
-
-        return response()->json(['error' => $result->errorOutput()], 500);
+//        $output = [];
+//        $returnVar = 0;
+//        $result = exec(env('PYTHON').' '.env('PYTHONURL'),$output,$returnVar);
+//
+//        if ($returnVar === 0) {
+//            return response()->json(['output' => $output]);
+//        }
+//
+//        return response()->json(['error' => $result->errorOutput()], 500);
         return view('welcome');
     }
 
@@ -389,31 +389,41 @@ dd($result);
 
         if ($jsonDecode['IsSuccessful'] == true) {
 
-            $url = "http://localhost:3000/open-browser?event_type=minimize";
+            $output = [];
+            $returnVar = 0;
+            $result = exec(env('PYTHON').' '.env('PYTHONURL'),$output,$returnVar);
 
-            $header = array(
-                "Content-Type: application/json",
-                'Accept: application/json'
-            );
-            $ch = curl_init();
+            if ($returnVar === 0) {
+                return response()->json(['output' => $output]);
+            }
 
-            $timeout = 60;
+            return response()->json(['error' => $result->errorOutput()], 500);
 
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET'); // Values: GET, POST, PUT, DELETE, PATCH, UPDATE
-            curl_setopt($ch, CURLOPT_POSTFIELDS, false);
-            //curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-            //execute call and return response data.
-            $result = curl_exec($ch);
-            //close curl connection
-            curl_close($ch);
-            // decode the json response
-            $jsonDecode = json_decode($result, true);
+//            $url = "http://localhost:3000/open-browser?event_type=minimize";
+//
+//            $header = array(
+//                "Content-Type: application/json",
+//                'Accept: application/json'
+//            );
+//            $ch = curl_init();
+//
+//            $timeout = 60;
+//
+//            curl_setopt($ch, CURLOPT_URL, $url);
+//            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+//            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+//            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+//            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET'); // Values: GET, POST, PUT, DELETE, PATCH, UPDATE
+//            curl_setopt($ch, CURLOPT_POSTFIELDS, false);
+//            //curl_setopt($ch, CURLOPT_POST, true);
+//            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+//            //execute call and return response data.
+//            $result = curl_exec($ch);
+//            //close curl connection
+//            curl_close($ch);
+//            // decode the json response
+//            $jsonDecode = json_decode($result, true);
 
             //code for close browser
 //            shell_exec('taskkill /f /im "firefox.exe"');
@@ -471,5 +481,20 @@ dd($result);
 //            'resultCode' => $resultCode
 //        ]);
 //        return view('close');
+    }
+
+    public function triggerB(Request $r)
+    {
+        if ($r->event_type == 'session_end'){
+            $output = [];
+            $returnVar = 0;
+            $result = exec(env('PYTHON').' '.env('PYTHONURL'),$output,$returnVar);
+
+            if ($returnVar === 0) {
+                return response()->json(['output' => $output]);
+            }
+
+            return response()->json(['error' => $result->errorOutput()], 500);
+        }
     }
 }

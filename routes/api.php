@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('trigger',[\App\Http\Controllers\RazorpayController::class,'trigger'])->name('trigger');
+Route::get('trigger-b',[\App\Http\Controllers\RazorpayController::class,'triggerB'])->name('trigger-b');

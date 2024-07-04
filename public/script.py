@@ -9,7 +9,7 @@ def bring_to_foreground():
     # Simulate Alt + Tab keypress to switch windows
     pyautogui.hotkey('alt', 'tab')
     time.sleep(switch_delay)  # Wait for switch to complete
-print("Hello from Python!")
+
 # Move the current application to the background
 def move_to_background():
     # Minimize the current window

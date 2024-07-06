@@ -207,7 +207,7 @@ class RazorpayController extends Controller
             exit;
         } else {
             $customerId = $customerRes['id'];
-
+            $amount = env('AMOUNT');
             $qrNote = "QR code payment of 1";
             $pdesc = "Razorpay QR code Payment";
             $expiretime = '';
@@ -216,7 +216,7 @@ class RazorpayController extends Controller
                     "name": "Hatk",
                     "usage": "single_use",
                     "fixed_amount": true,
-                    "payment_amount": 100,
+                    "payment_amount": ' . $amount . ',
                     "description": "",
                     "customer_id": "' . $customerId . '",
 
@@ -355,7 +355,8 @@ class RazorpayController extends Controller
 
     public function hitdslr()
     {
-        $url = "http://localhost:1500/api/start?mode=print&password=fGZQKdg69FpT1opQ";
+        $password = env('DSLRPASS');
+        $url = "http://localhost:1500/api/start?mode=print&password=$password";
 
         $header = array(
             "Content-Type: application/json",
@@ -391,7 +392,7 @@ class RazorpayController extends Controller
 
             $output = [];
             $returnVar = 0;
-            $result = exec(env('PYTHON').' '.env('PYTHONURL'),$output,$returnVar);
+            $result = exec(env('PYTHON') . ' ' . env('PYTHONURL'), $output, $returnVar);
 
             if ($returnVar === 0) {
                 return response()->json(['output' => $output]);
@@ -485,10 +486,10 @@ class RazorpayController extends Controller
 
     public function triggerB(Request $r)
     {
-        if ($r->event_type == 'session_end'){
+        if ($r->event_type == 'session_end') {
             $output = [];
             $returnVar = 0;
-            $result = exec(env('PYTHON').' '.env('PYTHONURL'),$output,$returnVar);
+            $result = exec(env('PYTHON') . ' ' . env('PYTHONURL'), $output, $returnVar);
 
             if ($returnVar === 0) {
                 return response()->json(['output' => $output]);

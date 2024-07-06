@@ -9,69 +9,57 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         body {
-            {{--background: url({{asset('img/background-2.png')}});--}}
-background-position: center;
+            background: url({{asset('img/background-2.png')}});
+            background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             height: 100vh;
             background-color: #000;
-
         }
 
-        /*.main {*/
-        /*    margin: 5%;*/
-        /*    height: auto;*/
-        /*    background-color: black;*/
-        /*    border-radius: 20px;*/
-        /*}*/
+        .main {
+            margin: 5%;
+            height: auto;
+            background-color: black;
+            border-radius: 20px;
+        }
 
-        /*.btn {*/
-        /*    background-color: #f1b82e;*/
-        /*    border-radius: 10px;*/
-        /*    color: #000;*/
-        /*    font-size: 1.4rem;*/
-        /*    height: 50px;*/
-        /*    padding: 10px;*/
-        /*    width: 70%;*/
-        /*    margin-top: 20%;*/
-        /*}*/
-
-        .btton{
-            margin-top: 40vh;
+        .btn {
+            background-color: #f1b82e;
+            border-radius: 10px;
+            color: #000;
+            font-size: 1.4rem;
+            height: 50px;
+            padding: 10px;
+            width: 70%;
+            margin-top: 20%;
         }
     </style>
 </head>
-<body >
+<body>
 
-<div class="container-fluid" >
+<div class="container-fluid">
     <div class="row main">
-        <div class="col-sm-5" >
-            <img src="{{asset('img/ScreenLeft_1_Main(1).png')}}" width="100%" style="padding-left: 0px">
+        <div class="col-sm-5">
+            <img src="{{asset('img/main.png')}}" width="540px" style="padding-left: 0px">
         </div>
-        <div class="col-sm-4" >
+        <div class="col-sm-4">
             <center>
-                <img src="{{$qrImage}}" width="350px" align="center" height="700px" style="margin-top: 15vh;">
+                <img src="{{$qrImage}}" width="300px" align="center" height="550px">
 
             </center>
+            <center>
+                <span>
 
+
+                </span>
+            </center>
         </div>
         <div class="col-sm-3">
-            <center>
-                <img src="{{asset('img/logo.png')}}" width="50%" align="center" class="btn" style="margin-top: 40vh;">
-                <br><br>
-                <br><br>
-                <p style="color:  #ebebeb ; font-size: 11px;">
-                    For queries, please reach us at -<br>
-                    support@hatk.in or call +91 6901470088
-                </p>
-            </center>
-            <form action="{{ route('razorpay.payment.start') }}" method="POST" id="pamentForm">
-                @csrf
-            </form>
+            <img src="{{asset('img/app.png')}}" width="330px" style="float: right">
         </div>
     </div>
 </div>
-
 <script>
     function checkStatus() {
 

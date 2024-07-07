@@ -9,30 +9,35 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         body {
-            background: url({{asset('img/background-2.png')}});
-            background-position: center;
+            {{--background: url({{asset('img/background-2.png')}});--}}
+ background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             height: 100vh;
             background-color: #000;
+
         }
 
-        .main {
-            margin: 5%;
-            height: auto;
-            background-color: black;
-            border-radius: 20px;
-        }
+        /*.main {*/
+        /*    margin: 5%;*/
+        /*    height: auto;*/
+        /*    background-color: black;*/
+        /*    border-radius: 20px;*/
+        /*}*/
 
-        .btn {
-            background-color: #f1b82e;
-            border-radius: 10px;
-            color: #000;
-            font-size: 1.4rem;
-            height: 50px;
-            padding: 10px;
-            width: 70%;
-            margin-top: 20%;
+        /*.btn {*/
+        /*    background-color: #f1b82e;*/
+        /*    border-radius: 10px;*/
+        /*    color: #000;*/
+        /*    font-size: 1.4rem;*/
+        /*    height: 50px;*/
+        /*    padding: 10px;*/
+        /*    width: 70%;*/
+        /*    margin-top: 20%;*/
+        /*}*/
+
+        .btton {
+            margin-top: 41vh;
         }
     </style>
 </head>
@@ -41,43 +46,37 @@
 <div class="container-fluid">
     <div class="row main">
         <div class="col-sm-5">
-            <img src="{{asset('img/main.png')}}" width="540px" style="padding-left: 0px">
+            <img src="{{asset('img/ScreenLeft_1_Main(1).png')}}" width="90%" style="padding-left: 0px">
+        </div>
+        <div class="col-sm-3">
+            <center>
+                <div
+                    style="background-color: #f1b82e; width:400px;height: 100px;border-radius: 20px;padding-top: 35px;margin-top: 39vh;"
+                    id="hide">
+                    <span style="text-align: center;font-size: 20px;font-family:'Courier New';color: white"><b>DslrBooth is now starting.......</b></span>
+                </div>
+
+            </center>
+
         </div>
         <div class="col-sm-4">
             <center>
-                <img src="{{asset('img/logo.png')}}" width="330px" align="center" style="margin-top: 40%">
-                <br>
-                <span style="font-family: Baumans,system-ui;font-size: 22px;color: white;">A Photo Booth Platform</span>
+                <img src="{{asset('img/logo.png')}}" width="50%" align="center" class="btn" style="margin-top: 38vh;">
+                <br><br>
+                <br><br>
+                <p style="color:  #ebebeb ; font-size: 11px;">
+                    For queries, please reach us at -<br>
+                    support@hatk.in or call +91 6901470088
+                </p>
             </center>
-            <center>
-                <span>
-                    <div
-                        style="background-color: #f1b82e; width:400px;height: 100px;border-radius: 20px;padding-top: 35px"
-                        id="hide">
-                        <span style="text-align: center;font-size: 20px;font-family:'Courier New';color: white"><b>DslrBooth is now starting.......</b></span>
-                    </div>
-                    <div id="printBtn" style="display:none;">
-                        <a href="{{route('home')}}">
-                            <button class="btn" type="button" id="home">
-                                <span style="font-family:'Courier New';font-size: 25px"><b>Go To Home</b></span>
-                            </button>
-                        </a>
-{{--                        <form method="post" action="{{route('home')}}">--}}
-                        {{--                            @csrf--}}
-                        {{--                            <button class="btn" type="submit">--}}
-                        {{--                                <span style="font-family:'Courier New';font-size: 25px"><b>Go To Home</b></span>--}}
-                        {{--                            </button>--}}
-                        {{--                        </form>--}}
-                    </div>
-
-                </span>
-            </center>
-        </div>
-        <div class="col-sm-3">
-            <img src="{{asset('img/app.png')}}" width="330px" style="float: right">
+            <form action="{{ route('razorpay.payment.start') }}" method="POST" id="pamentForm">
+                @csrf
+            </form>
         </div>
     </div>
 </div>
+
+
 <script>
 
 
@@ -100,7 +99,7 @@
             $('#home').click();
         }, 20000);
     });
-</script>
 
+</script>
 </body>
 </html>

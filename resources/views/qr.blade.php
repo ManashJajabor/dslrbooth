@@ -10,7 +10,7 @@
     <style>
         body {
             {{--background: url({{asset('img/background-2.png')}});--}}
-background-position: center;
+  background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             height: 100vh;
@@ -36,27 +36,33 @@ background-position: center;
         /*    margin-top: 20%;*/
         /*}*/
 
-        .btton{
+        .btton {
             margin-top: 40vh;
         }
+
+
     </style>
 </head>
-<body >
+<body>
 
-<div class="container-fluid" >
+<div class="container-fluid">
     <div class="row main">
-        <div class="col-sm-5" >
-            <img src="{{asset('img/ScreenLeft_1_Main(1).png')}}" width="100%" style="padding-left: 0px">
-        </div>
-        <div class="col-sm-4" >
-            <center>
-                <img src="{{$qrImage}}" width="350px" align="center" height="700px" style="margin-top: 15vh;">
-
-            </center>
-
+        <div class="col-sm-5">
+            <img src="{{asset('img/ScreenLeft_1_Main(1).png')}}" width="90%" style="padding-left: 0px">
         </div>
         <div class="col-sm-3">
+
             <center>
+                <img src="{{$qrImage}}" width="80%" align="center" height="600vh" style="margin-top: 8vh;"><br>
+                <a href="{{route('home')}}" style="color: white;font-size: 15px">Click to Cancel Payment</a>
+            </center>
+
+
+        </div>
+        <div class="col-sm-4">
+
+            <center>
+
                 <img src="{{asset('img/logo.png')}}" width="50%" align="center" class="btn" style="margin-top: 40vh;">
                 <br><br>
                 <br><br>

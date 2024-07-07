@@ -46,7 +46,7 @@
 <div class="container-fluid" >
     <div class="row main">
         <div class="col-sm-5" >
-            <img src="{{asset('img/ScreenLeft_1_Main(1).png')}}" width="100%" style="padding-left: 0px">
+            <img src="{{asset('img/ScreenLeft_1_Main(1).png')}}" width="90%" style="padding-left: 0px">
         </div>
         <div class="col-sm-3" >
             <center>

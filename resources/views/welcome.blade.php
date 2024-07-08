@@ -25,6 +25,8 @@
                 position: absolute;
                 top: 0; right: 0; bottom: 0; left: 0;
                 height: 100vh;
+                /*margin-top: 5vh;*/
+                width: 90%;
             }
         </style>
 </head>
@@ -37,7 +39,7 @@
         </div>
         <div class="col-sm-3" >
             <center>
-                <img src="{{asset('img/HatkStartButton.png')}}" width="100%" align="center" class="btton" onclick="DoSomething();">
+                <img src="{{asset('img/HatkStartButton.png')}}" width="90%" align="center" class="btton" onclick="DoSomething();">
 
             </center>
 

@@ -26,6 +26,8 @@
             position: absolute;
             top: 0; right: 0; bottom: 0; left: 0;
             height: 100vh;
+            /*margin-top: 5vh;*/
+            width: 90%;
         }
     </style>
 </head>
@@ -85,7 +87,7 @@
                 type: 'GET',
                 dataType: 'JSON'
             });
-        }, 2000);
+        }, 5000);
 
         setInterval(function () {
             $("#printBtn").fadeIn();

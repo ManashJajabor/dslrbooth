@@ -39,10 +39,12 @@
         <div class="col-sm-3">
             <center>
                 <div
-                    style="background-color: #f1b82e; width:400px;height: 100px;border-radius: 20px;padding-top: 35px;margin-top: 39vh;"
+                    style="padding-top: 35px;margin-top: 30vh;"
                     id="hide">
-                    <span style="text-align: center;font-size: 20px;font-family:'Courier New';color: white"><b>DslrBooth is now starting.......</b></span>
+{{--                    <span style="text-align: center;font-size: 20px;font-family:'Courier New';color: white"><b>DslrBooth is now starting.......</b></span>--}}
+                    <img src="{{asset('img/PaymentAccepte_PopUp.png')}}" style="width: 100%">
                 </div>
+
                 <div id="printBtn" style="display:none;">
                     <a href="{{route('home')}}">
                         <button class="btn" type="button" id="home">
@@ -77,12 +79,13 @@
 
     $(document).ready(function () {
 
-        $.ajax({
-            url: '{{route('hitdslr')}}',
-            type: 'GET',
-            dataType: 'JSON'
-        });
-
+        setTimeout(function () {
+            $.ajax({
+                url: '{{route('hitdslr')}}',
+                type: 'GET',
+                dataType: 'JSON'
+            });
+        }, 2000);
 
         setInterval(function () {
             $("#printBtn").fadeIn();

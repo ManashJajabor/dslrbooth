@@ -28,6 +28,15 @@
             top: 0; right: 0; bottom: 0; left: 0;
             height: 100vh;
         }
+        .qr{
+            /*position: absolute;*/
+            top: 0; right: 0; bottom: 0; left: 0;
+            height: 80vh !important;
+            width: 20vw !important;
+            margin-top: 10vh;
+            /*margin-bottom: 10vh;*/
+
+        }
     </style>
 </head>
 <body>
@@ -40,7 +49,8 @@
         <div class="col-sm-3">
 
             <center>
-                <img src="{{$qrImage}}" width="70%" align="center" height="600vh" style="margin-top: 8vh;"><br>
+{{--                <img src="{{$qrImage}}" width="70%" align="center" height="600vh" style="margin-top: 8vh;"><br>--}}
+                <img src="{{$qrImage}}"  class="qr"><br>
                 <a href="{{route('home')}}" style="color: white;font-size: 15px">Click to Cancel Payment</a>
             </center>
 

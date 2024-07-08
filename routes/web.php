@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[\App\Http\Controllers\RazorpayController::class,'home'])->name('home');
 
 //Route::post('razorpay-payment',[\App\Http\Controllers\RazorpayController::class,'store'])->name('razorpay.payment.store');
-Route::get('success',[\App\Http\Controllers\RazorpayController::class,'success'])->name('success');
+Route::post('success',[\App\Http\Controllers\RazorpayController::class,'success'])->name('success');
 Route::post('print',[\App\Http\Controllers\RazorpayController::class,'print'])->name('print');
 Route::get('hitdslr',[\App\Http\Controllers\RazorpayController::class,'hitdslr'])->name('hitdslr');
 

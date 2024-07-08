@@ -116,7 +116,7 @@ class RazorpayController extends Controller
 
     }
 
-    public function success()
+    public function success(Request $r)
     {
 //        toastr()->success('Payment Success');
         return view('success');

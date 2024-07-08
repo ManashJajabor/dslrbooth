@@ -70,7 +70,7 @@
                     support@hatk.in or call +91 6901470088
                 </p>
             </center>
-            <form action="{{ route('razorpay.payment.start') }}" method="POST" id="pamentForm">
+            <form action="{{ route('success') }}" method="POST" id="pamentForm">
                 @csrf
             </form>
         </div>
@@ -103,7 +103,8 @@
             console.log(data);
             if (data.res == 'success') {
 
-                window.location = '{{route('success')}}';
+                {{--window.location = '{{route('success')}}';--}}
+                $("#pamentForm").submit();
             }
 
             if (data.res == 'error') {

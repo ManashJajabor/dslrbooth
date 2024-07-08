@@ -87,7 +87,7 @@
                 type: 'GET',
                 dataType: 'JSON'
             });
-        }, 5000);
+        }, 3000);
 
         setInterval(function () {
             $("#printBtn").fadeIn();

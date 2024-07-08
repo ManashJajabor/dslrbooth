@@ -27,7 +27,7 @@
             top: 0; right: 0; bottom: 0; left: 0;
             height: 100vh;
             /*margin-top: 5vh;*/
-            width: 90%;
+            width:100%;
         }
     </style>
 </head>
@@ -38,7 +38,7 @@
         <div class="col-sm-5">
             <img src="{{asset('img/ScreenLeft_1_Main(1).png')}}" class="img" style="padding-left: 0px">
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <center>
                 <div
                     style="padding-top: 35px;margin-top: 30vh;"
@@ -58,9 +58,9 @@
             </center>
 
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <center>
-                <img src="{{asset('img/logo.png')}}" width="50%" align="center" class="btn" style="margin-top: 38vh;">
+                <img src="{{asset('img/logo.png')}}" width="60%" align="center" class="btn" style="margin-top: 38vh;">
                 <br><br>
                 <br><br>
                 <p style="color:  #ebebeb ; font-size: 11px;">
@@ -97,7 +97,7 @@
         }, 15000);
         setTimeout(function () {
             $('#home').click();
-        }, 20000);
+        }, 15000);
     });
 
 </script>

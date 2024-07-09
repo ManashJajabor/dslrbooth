@@ -62,7 +62,7 @@
 
             <center>
 
-                <img src="{{asset('img/logo.png')}}" width="60%" align="center" class="btn" style="margin-top: 38vh;">
+                <img src="{{asset('img/logo.png')}}" width="60%" align="center" class="btn" style="margin-top: 44vh;">
                 <br><br>
                 <br><br>
                 <p style="color:  #ebebeb ; font-size: 11px;">

@@ -44,7 +44,7 @@
                     style="padding-top: 35px;margin-top: 30vh;"
                     id="hide">
 {{--                    <span style="text-align: center;font-size: 20px;font-family:'Courier New';color: white"><b>DslrBooth is now starting.......</b></span>--}}
-                    <img src="{{asset('img/PaymentAccepte_PopUp.png')}}" style="width: 100%">
+                    <img src="{{asset('img/PaymentAccepte_PopUp.png')}}" style="width: 100%;margin-top: 2vh;">
                 </div>
 
                 <div id="printBtn" style="display:none;">
@@ -60,7 +60,7 @@
         </div>
         <div class="col-sm-3">
             <center>
-                <img src="{{asset('img/logo.png')}}" width="60%" align="center" class="btn" style="margin-top: 38vh;">
+                <img src="{{asset('img/logo.png')}}" width="60%" align="center" class="btn" style="margin-top: 44vh;">
                 <br><br>
                 <br><br>
                 <p style="color:  #ebebeb ; font-size: 11px;">
